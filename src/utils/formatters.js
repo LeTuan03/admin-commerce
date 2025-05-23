@@ -43,11 +43,13 @@ export const formatDateTimeBE = (dateString) => {
 export const getStatusColor = (status) => {
   switch (status) {
     case appConst.STATUS_ORDER.DANG_XU_LY.name:
+      return 'warning';
     case appConst.STATUS_ORDER.DA_XU_LY.name:
+      return 'info';
     case appConst.STATUS_ORDER.DANG_GIAO_HANG.name:
       return 'success';
     case appConst.STATUS_ORDER.DA_GIAO.name:
-      return 'warning';
+      return 'success';
     case appConst.STATUS_ORDER.DA_HUY.name:
       return 'error';
     default:

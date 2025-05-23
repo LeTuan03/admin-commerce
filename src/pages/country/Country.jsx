@@ -150,7 +150,7 @@ const Country = () => {
     <Box>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
         <Typography variant="h4" sx={{ fontWeight: 'medium' }}>
-          Countrys
+          Country
         </Typography>
         <Button
           variant="contained"

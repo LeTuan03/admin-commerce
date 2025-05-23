@@ -379,118 +379,118 @@ const Overview = () => {
       </Grid>
       
       {/* Recent Orders and Low Stock */}
-      <Grid container spacing={3}>
-        <Grid item xs={12} md={6}>
-          <Paper sx={{ p: 3, borderRadius: 2 }}>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-              <Typography variant="h6">Recent Orders</Typography>
-              <Button color="primary" size="small">View All</Button>
-            </Box>
-            <Divider sx={{ mb: 2 }} />
-            <List sx={{ width: '100%' }}>
-              {data.recentOrders.map((order) => (
-                <ListItem
-                  key={order.id}
-                  secondaryAction={
-                    <Typography 
-                      variant="body2" 
-                      fontWeight="medium"
-                    >
-                      {formatCurrency(order.total)}
-                    </Typography>
-                  }
-                  sx={{ px: 1 }}
-                >
-                  <ListItemAvatar>
-                    <Avatar sx={{ bgcolor: theme.palette.primary.main + '15', color: theme.palette.primary.main }}>
-                      <ShoppingCart fontSize="small" />
-                    </Avatar>
-                  </ListItemAvatar>
-                  <ListItemText
-                    primary={`Order #${order.id}`}
-                    secondary={
-                      <Box component="span" sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                        <Typography variant="body2" color="text.secondary">
-                          {order.date}
-                        </Typography>
-                        <Box 
-                          component="span" 
-                          sx={{ 
-                            display: 'inline-block',
-                            px: 1,
-                            py: 0.5,
-                            borderRadius: 1,
-                            fontSize: '0.75rem',
-                            backgroundColor: 
-                              order.status === 'Completed' ? theme.palette.success.main + '20' :
-                              order.status === 'Processing' ? theme.palette.warning.main + '20' :
-                              order.status === 'Pending' ? theme.palette.info.main + '20' :
-                              theme.palette.error.main + '20',
-                            color: 
-                              order.status === 'Completed' ? theme.palette.success.main :
-                              order.status === 'Processing' ? theme.palette.warning.main :
-                              order.status === 'Pending' ? theme.palette.info.main :
-                              theme.palette.error.main,
-                          }}
-                        >
-                          {order.status}
-                        </Box>
-                      </Box>
-                    }
-                  />
-                </ListItem>
-              ))}
-            </List>
-          </Paper>
-        </Grid>
-        
-        <Grid item xs={12} md={6}>
-          <Paper sx={{ p: 3, borderRadius: 2 }}>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-              <Typography variant="h6">Low Stock Products</Typography>
-              <Button color="primary" size="small">View All</Button>
-            </Box>
-            <Divider sx={{ mb: 2 }} />
-            <List sx={{ width: '100%' }}>
-              {data.lowStockProducts.map((product) => (
-                <ListItem
-                  key={product.id}
-                  secondaryAction={
-                    <Box 
-                      component="span" 
-                      sx={{ 
-                        display: 'inline-block',
-                        px: 1,
-                        py: 0.5,
-                        borderRadius: 1,
-                        fontSize: '0.75rem',
-                        fontWeight: 'medium',
-                        backgroundColor: theme.palette.error.main + '20',
-                        color: theme.palette.error.main,
-                      }}
-                    >
-                      {product.stock} left
-                    </Box>
-                  }
-                  sx={{ px: 1 }}
-                >
-                  <ListItemAvatar>
-                    <Avatar 
-                      src={product.image} 
-                      variant="rounded"
-                      sx={{ width: 40, height: 40 }}
-                    />
-                  </ListItemAvatar>
-                  <ListItemText
-                    primary={product.name}
-                    secondary={formatCurrency(product.price)}
-                  />
-                </ListItem>
-              ))}
-            </List>
-          </Paper>
-        </Grid>
-      </Grid>
+      {/*<Grid container spacing={3}>*/}
+      {/*  <Grid item xs={12} md={6}>*/}
+      {/*    <Paper sx={{ p: 3, borderRadius: 2 }}>*/}
+      {/*      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>*/}
+      {/*        <Typography variant="h6">Recent Orders</Typography>*/}
+      {/*        <Button color="primary" size="small">View All</Button>*/}
+      {/*      </Box>*/}
+      {/*      <Divider sx={{ mb: 2 }} />*/}
+      {/*      <List sx={{ width: '100%' }}>*/}
+      {/*        {data.recentOrders.map((order) => (*/}
+      {/*          <ListItem*/}
+      {/*            key={order.id}*/}
+      {/*            secondaryAction={*/}
+      {/*              <Typography */}
+      {/*                variant="body2" */}
+      {/*                fontWeight="medium"*/}
+      {/*              >*/}
+      {/*                {formatCurrency(order.total)}*/}
+      {/*              </Typography>*/}
+      {/*            }*/}
+      {/*            sx={{ px: 1 }}*/}
+      {/*          >*/}
+      {/*            <ListItemAvatar>*/}
+      {/*              <Avatar sx={{ bgcolor: theme.palette.primary.main + '15', color: theme.palette.primary.main }}>*/}
+      {/*                <ShoppingCart fontSize="small" />*/}
+      {/*              </Avatar>*/}
+      {/*            </ListItemAvatar>*/}
+      {/*            <ListItemText*/}
+      {/*              primary={`Order #${order.id}`}*/}
+      {/*              secondary={*/}
+      {/*                <Box component="span" sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>*/}
+      {/*                  <Typography variant="body2" color="text.secondary">*/}
+      {/*                    {order.date}*/}
+      {/*                  </Typography>*/}
+      {/*                  <Box */}
+      {/*                    component="span" */}
+      {/*                    sx={{ */}
+      {/*                      display: 'inline-block',*/}
+      {/*                      px: 1,*/}
+      {/*                      py: 0.5,*/}
+      {/*                      borderRadius: 1,*/}
+      {/*                      fontSize: '0.75rem',*/}
+      {/*                      backgroundColor: */}
+      {/*                        order.status === 'Completed' ? theme.palette.success.main + '20' :*/}
+      {/*                        order.status === 'Processing' ? theme.palette.warning.main + '20' :*/}
+      {/*                        order.status === 'Pending' ? theme.palette.info.main + '20' :*/}
+      {/*                        theme.palette.error.main + '20',*/}
+      {/*                      color: */}
+      {/*                        order.status === 'Completed' ? theme.palette.success.main :*/}
+      {/*                        order.status === 'Processing' ? theme.palette.warning.main :*/}
+      {/*                        order.status === 'Pending' ? theme.palette.info.main :*/}
+      {/*                        theme.palette.error.main,*/}
+      {/*                    }}*/}
+      {/*                  >*/}
+      {/*                    {order.status}*/}
+      {/*                  </Box>*/}
+      {/*                </Box>*/}
+      {/*              }*/}
+      {/*            />*/}
+      {/*          </ListItem>*/}
+      {/*        ))}*/}
+      {/*      </List>*/}
+      {/*    </Paper>*/}
+      {/*  </Grid>*/}
+      {/*  */}
+      {/*  <Grid item xs={12} md={6}>*/}
+      {/*    <Paper sx={{ p: 3, borderRadius: 2 }}>*/}
+      {/*      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>*/}
+      {/*        <Typography variant="h6">Low Stock Products</Typography>*/}
+      {/*        <Button color="primary" size="small">View All</Button>*/}
+      {/*      </Box>*/}
+      {/*      <Divider sx={{ mb: 2 }} />*/}
+      {/*      <List sx={{ width: '100%' }}>*/}
+      {/*        {data.lowStockProducts.map((product) => (*/}
+      {/*          <ListItem*/}
+      {/*            key={product.id}*/}
+      {/*            secondaryAction={*/}
+      {/*              <Box */}
+      {/*                component="span" */}
+      {/*                sx={{ */}
+      {/*                  display: 'inline-block',*/}
+      {/*                  px: 1,*/}
+      {/*                  py: 0.5,*/}
+      {/*                  borderRadius: 1,*/}
+      {/*                  fontSize: '0.75rem',*/}
+      {/*                  fontWeight: 'medium',*/}
+      {/*                  backgroundColor: theme.palette.error.main + '20',*/}
+      {/*                  color: theme.palette.error.main,*/}
+      {/*                }}*/}
+      {/*              >*/}
+      {/*                {product.stock} left*/}
+      {/*              </Box>*/}
+      {/*            }*/}
+      {/*            sx={{ px: 1 }}*/}
+      {/*          >*/}
+      {/*            <ListItemAvatar>*/}
+      {/*              <Avatar */}
+      {/*                src={product.image} */}
+      {/*                variant="rounded"*/}
+      {/*                sx={{ width: 40, height: 40 }}*/}
+      {/*              />*/}
+      {/*            </ListItemAvatar>*/}
+      {/*            <ListItemText*/}
+      {/*              primary={product.name}*/}
+      {/*              secondary={formatCurrency(product.price)}*/}
+      {/*            />*/}
+      {/*          </ListItem>*/}
+      {/*        ))}*/}
+      {/*      </List>*/}
+      {/*    </Paper>*/}
+      {/*  </Grid>*/}
+      {/*</Grid>*/}
     </Box>
   )
 }

@@ -47,9 +47,9 @@ const menuItems = [
     ],
   },
   {
-    label: 'Staff',
+    label: 'Customer',
     icon: <GroupIcon />,
-    path: '/staff',
+    path: '/customer',
   },
   {
     label: 'Settings',
