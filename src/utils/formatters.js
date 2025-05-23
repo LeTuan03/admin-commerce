@@ -1,5 +1,6 @@
 // Format currency values
 import {format} from "date-fns";
+import {appConst} from "./constant.js";
 
 export const formatCurrency = (amount) => {
   return new Intl.NumberFormat('en-US', {
@@ -40,17 +41,14 @@ export const formatDateTimeBE = (dateString) => {
 
 // Format status with color
 export const getStatusColor = (status) => {
-  switch (status.toLowerCase()) {
-    case 'completed':
-    case 'delivered':
-    case 'active':
+  switch (status) {
+    case appConst.STATUS_ORDER.DANG_XU_LY.name:
+    case appConst.STATUS_ORDER.DA_XU_LY.name:
+    case appConst.STATUS_ORDER.DANG_GIAO_HANG.name:
       return 'success';
-    case 'processing':
-    case 'pending':
+    case appConst.STATUS_ORDER.DA_GIAO.name:
       return 'warning';
-    case 'cancelled':
-    case 'failed':
-    case 'archived':
+    case appConst.STATUS_ORDER.DA_HUY.name:
       return 'error';
     default:
       return 'info';

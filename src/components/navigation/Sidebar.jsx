@@ -43,7 +43,7 @@ const menuItems = [
       { label: 'Attributes Value', icon: <StyleIcon />, path: '/attributes-value' },
       { label: 'Coupon', icon: <StyleIcon />, path: '/coupon' },
       { label: 'Country', icon: <StyleIcon />, path: '/country' },
-      { label: 'Customer Address', icon: <StyleIcon />, path: '/customer' },
+      // { label: 'Customer Address', icon: <StyleIcon />, path: '/customer' },
     ],
   },
   {
